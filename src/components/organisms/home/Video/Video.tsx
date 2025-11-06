@@ -9,7 +9,7 @@ const Video = () => {
                 </h3>
             </XContainer>
             <video playsInline muted autoPlay loop className="w-full">
-                <source src="/video/watermarked_preview.mp4" type="video/mp4" />
+                <source src="/video/about.mp4" type="video/mp4" />
             </video>
         </div>
     );
