@@ -1,0 +1,143 @@
+@theme {
+    --color-*: initial;
+    --color-black: #000000;
+    --color-light: #ffffff;
+    --color-dark: #1c1c1c;
+    --color-green: #046307;
+    --color-emerald: #004b40;
+    --color-smoke: #f5f5f5;
+    --color-sand: #c8a951;
+    --color-gray: #cecece;
+
+    --font-encode-sans-condensed: "Encode Sans Condensed", sans-serif;
+    --font-encode-sans-expanded: "Encode Sans Expanded", sans-serif;
+    --font-encode-sans-semi-condensed: "Encode Sans Semi Condensed", sans-serif;
+    --font-dm-sans: "DM Sans", sans-serif;
+
+    --text-link: 14px;
+    --text-promotion: 15px;
+    --text-button: 13px;
+    --text-header-1: 126px;
+    --text-header-1-mono: 96px;
+    --text-header-2: 40px;
+    --text-header-3: 37px;
+    --text-header-4: 24px;
+    --text-header-5: 20px;
+    --text-paragraph-1: 32px;
+    --text-paragraph-2: 30px;
+    --text-paragraph-3: 17px;
+    --text-paragraph-4: 16px;
+    --text-paragraph-5: 12px;
+}
+
+@utility header-1 {
+    font-family: var(--font-encode-sans-condensed);
+    font-size: var(--text-header-1);
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.02em;
+}
+
+@utility header-1-mono {
+    font-family: var(--font-encode-sans-expanded);
+    font-size: var(--text-header-1-mono);
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: -0.02em;
+}
+
+@utility header-2 {
+    font-family: var(--font-encode-sans-condensed);
+    font-size: var(--text-header-2);
+    font-weight: 400;
+    line-height: 140%;
+    letter-spacing: 0.04em;
+}
+
+@utility header-3 {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-header-3);
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+@utility header-4 {
+    font-family: var(--font-dm-sans);
+    font-size: var(--text-header-4);
+    font-weight: 700;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+@utility header-5 {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-header-5);
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.02em;
+}
+
+@utility paragraph-1 {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-paragraph-1);
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+@utility paragraph-2 {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-paragraph-2);
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+@utility paragraph-3 {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-paragraph-3);
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.02em;
+}
+
+@utility paragraph-4 {
+    font-family: var(--font-encode-sans-expanded);
+    font-size: var(--text-paragraph-4);
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+@utility paragraph-5 {
+    font-family: var(--font-encode-sans-semi-expanded);
+    font-size: var(--text-paragraph-5);
+    font-weight: 400;
+    line-height: 137%;
+    letter-spacing: -0.02em;
+}
+
+@utility link {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-link);
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+@utility promotion {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-promotion);
+    font-weight: 600;
+    line-height: 110%;
+    letter-spacing: -0.02em;
+}
+
+@utility button {
+    font-family: var(--font-encode-sans-semi-condensed);
+    font-size: var(--text-button);
+    font-weight: 400;
+    line-height: 90%;
+    letter-spacing: -0.06em;
+}
