@@ -8,13 +8,13 @@ type BaseXButtonProps = Omit<ButtonProps, "component">;
 
 type XButtonAsButton = BaseXButtonProps & {
     as?: "button";
-    mode?: "light" | "dark";
+    mode?: "light" | "dark" | "book";
 } & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof ButtonProps>;
 
 type XButtonAsLink = BaseXButtonProps & {
     as: "link";
     href: string;
-    mode?: "light" | "dark";
+    mode?: "light" | "dark" | "book";
 } & Omit<React.ComponentPropsWithoutRef<typeof Link>, keyof ButtonProps | "href">;
 
 type XButtonProps = XButtonAsButton | XButtonAsLink;
@@ -23,6 +23,10 @@ const XButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, XButtonP
     ({ as = "button", mode = "light", classNames, ...props }, ref) => {
         // Define mode-specific styles
         const modeStyles = {
+            book: {
+                base: "bg-light text-dark hover:text-light border-l border-gray",
+                hover: "before:bg-green",
+            },
             light: {
                 base: "bg-smoke text-dark",
                 hover: "before:bg-sand",
@@ -45,7 +49,7 @@ const XButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, XButtonP
                 "before:content-['']",
                 "before:absolute before:left-0 before:top-0 before:h-full before:w-0",
                 currentMode.hover,
-                "before:z-0 before:transition-all before:duration-500",
+                "before:z-0 before:transition-all before:duration-300",
                 "group-hover:before:w-full",
                 "relative z-10",
                 (classNames as Record<string, string>)?.inner,
