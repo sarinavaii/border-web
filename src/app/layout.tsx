@@ -1,5 +1,6 @@
 import MainProvider from "@core/providers/MainProvider";
 import Footer from "@organisms/common/Footer";
+import Header from "@organisms/common/Header";
 import "@styles/globals.css";
 import type { Metadata } from "next";
 import { DM_Sans, Encode_Sans_Condensed, Encode_Sans_Expanded, Encode_Sans_Semi_Condensed } from "next/font/google";
@@ -37,6 +38,7 @@ export default function RootLayout({
             >
                 <MainProvider>
                     <main className="font-encode-sans-semi-condensed bg-light text-dark">
+                        <Header />
                         {children}
                         <Footer />
                     </main>

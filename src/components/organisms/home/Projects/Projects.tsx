@@ -83,7 +83,7 @@ const Projects = () => {
                         {STATIC_PROJECTS.map((project) => (
                             <SwiperSlide key={project.id}>
                                 <div className="grid lg:grid-cols-4 grid-cols-1 bg-light">
-                                    <div className="col-span-1 lg:border-r border-x border-gray py-6 lg:pr-6 px-6">
+                                    <div className="col-span-1 lg:border-r max-lg:border-x border-gray py-6 lg:pr-6 max-lg:px-6">
                                         <div className="lg:bg-smoke bg-light max-lg:border max-lg:border-gray p-6 lg:pt-[72px] max-lg:p-0 flex flex-col justify-between lg:gap-12 h-full">
                                             <Image
                                                 src="/images/footer-bg.webp"
@@ -98,7 +98,7 @@ const Projects = () => {
                                                 </div>
                                                 <div className="lg:paragraph-4 paragraph-5">{project.company}</div>
                                             </div>
-                                            <div className="flex lg:flex-col items-center max-lg:border-t max-lg:border-gray">
+                                            <div className="flex lg:flex-col max-lg:items-center max-lg:border-t max-lg:border-gray">
                                                 <div className="flex gap-4 text-green paragraph-5 justify-center items-center lg:mb-4 max-lg:grow">
                                                     <span>{project.location}</span>
                                                     <span>{project.date}</span>
@@ -167,7 +167,7 @@ const Projects = () => {
             </div>
             <XContainer className="lg:p-0!">
                 <div className="grid lg:grid-cols-4 grid-cols-1 h-24">
-                    <div className="h-full lg:border-r border-x max-lg:ps-6 border-gray flex items-center gap-4 py-6">
+                    <div className="h-full lg:border-r max-lg:border-x max-lg:ps-6 border-gray flex items-center gap-4 py-6">
                         <XButton
                             onClick={() => swiperRef.current?.swiper.slidePrev()}
                             classNames={{ inner: "cursor-pointer p-0! size-12! flex items-center justify-center" }}
