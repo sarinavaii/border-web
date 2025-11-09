@@ -1,3 +1,4 @@
+import XMouseFollower from "@atoms/XMouseFollower/XMouseFollower";
 import MainProvider from "@core/providers/MainProvider";
 import Footer from "@organisms/common/Footer";
 import Header from "@organisms/common/Header";
@@ -41,6 +42,7 @@ export default function RootLayout({
                         <Header />
                         {children}
                         <Footer />
+                        <XMouseFollower />
                     </main>
                 </MainProvider>
             </body>
