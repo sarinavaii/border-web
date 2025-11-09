@@ -37,7 +37,7 @@ export default function RootLayout({
                 className={`${encodeSansCondensed.className} ${encodeSansExpanded.className} ${encodeSansSemiCondensed.className} ${DMSans.className} antialiased`}
             >
                 <MainProvider>
-                    <main className="font-encode-sans-semi-condensed bg-light text-dark">
+                    <main className="font-encode-sans-semi-condensed bg-light text-dark select-none">
                         <Header />
                         {children}
                         <Footer />

@@ -167,7 +167,7 @@ const Projects = () => {
             </div>
             <XContainer className="lg:p-0!">
                 <div className="grid lg:grid-cols-4 grid-cols-1 h-24">
-                    <div className="h-full lg:border-r max-lg:border-x max-lg:ps-6 border-gray flex items-center gap-4 py-6">
+                    <div className="h-full lg:border-r max-lg:border-x max-lg:ps-6 border-gray flex items-center gap-4 py-6 lg:ps-4">
                         <XButton
                             onClick={() => swiperRef.current?.swiper.slidePrev()}
                             classNames={{ inner: "cursor-pointer p-0! size-12! flex items-center justify-center" }}
