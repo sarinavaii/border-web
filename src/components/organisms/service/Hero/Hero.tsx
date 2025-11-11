@@ -2,23 +2,11 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const Hero = () => {
-    const words = ["Build", "Design", "Lead", "Execute", "Engineer"];
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % words.length);
-        }, 2000);
-
-        return () => clearInterval(interval);
-    }, [words.length]);
-
     return (
-        <div className="text-light relative">
+        <div className="text-light relative h-[870px] bg-[url('/images/services-bg.webp')] bg-cover bg-center">
             <div className="absolute inset-0">
                 <XContainer className="h-full lg:px-0!">
                     <div className="grid lg:grid-cols-4 max-lg:hidden h-full">
@@ -30,28 +18,17 @@ const Hero = () => {
                 </XContainer>
             </div>
             <div className="absolute inset-0 bg-black/40"></div>
-            <div className="absolute inset-0 top-[180px] header-1-mono max-xl:text-7xl! max-lg:text-5xl! max-sm:text-4xl! mb-6">
+            <div className="absolute inset-0 top-[180px] mb-6">
                 <XContainer>
-                    <h2 className="leading-snug backdrop-blur-[2px] mb-16">
-                        The future is bright for us because we{" "}
-                        <AnimatePresence mode="wait">
-                            <motion.span
-                                key={currentIndex}
-                                initial={{ y: 40, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                exit={{ y: -40, opacity: 0 }}
-                                transition={{
-                                    duration: 0.5,
-                                    ease: "easeInOut",
-                                }}
-                                className="inline-block text-blue-600"
-                            >
-                                {words[currentIndex]}
-                            </motion.span>
-                        </AnimatePresence>
+                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
+                        Comprehensive <br /> Engineering & <br /> Construction Solutions
                     </h2>
+                    <div className="lg:paragraph-2 paragraph-4 mb-16">
+                        From design to execution, we deliver end-to-end construction services with precision, quality,
+                        and innovation
+                    </div>
                     <XButton as="link" href="/">
-                        Explore Projects
+                        Explore Our Services
                     </XButton>
                 </XContainer>
             </div>
@@ -73,9 +50,6 @@ const Hero = () => {
                 </div>
                 <div className="paragraph-5">Trusted by architects worldwide | BIM • Design • Consulting</div>
             </XContainer>
-            <video playsInline muted autoPlay loop className="w-full h-[870px] object-cover">
-                <source src="/video/about.mp4" type="video/mp4" />
-            </video>
         </div>
     );
 };

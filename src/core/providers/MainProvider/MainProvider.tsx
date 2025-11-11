@@ -7,6 +7,7 @@ import { Notifications } from "@mantine/notifications";
 
 import XNavigationProgress from "@atoms/XNavigationProgress";
 import theme from "@core/themes/MantineTheme/theme";
+import ReactLenis from "lenis/react";
 
 const MainProvider = ({ children }: PropsWithChildren) => {
     return (
@@ -14,6 +15,13 @@ const MainProvider = ({ children }: PropsWithChildren) => {
             <Notifications />
             <XNavigationProgress />
             {children}
+            <ReactLenis
+                options={{
+                    lerp: 0.5,
+                    duration: 3,
+                }}
+                root
+            />
         </MantineProvider>
     );
 };

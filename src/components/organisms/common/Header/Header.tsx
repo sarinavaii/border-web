@@ -2,6 +2,7 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import { Routes } from "@core/routes/routes";
 import { cn } from "@core/utils";
 import { Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -11,11 +12,11 @@ import Link from "next/link";
 const Header = () => {
     const [opened, { open, close }] = useDisclosure(false);
     const STATIC_LINKS = [
-        { label: "Services", href: "/" },
-        { label: "Projects", href: "/" },
-        { label: "About Us", href: "/" },
-        { label: "Clients", href: "/" },
-        { label: "Solutions", href: "/" },
+        { label: "Services", href: Routes.SERVICES },
+        { label: "Projects", href: Routes.PROJECTS },
+        { label: "About Us", href: Routes.ABOUT },
+        { label: "Clients", href: Routes.CLIENTS },
+        { label: "Solutions", href: Routes.SOLUTIONS },
     ];
 
     return (
@@ -47,50 +48,29 @@ const Header = () => {
                             </svg>
                         </XButton>
                         <div className="h-full lg:border-r border-gray/50">
-                            <div className="flex items-center h-full gap-2 lg:ps-4 max-lg:pe-4">
+                            <Link href={Routes.HOME} className="flex items-center h-full gap-2 lg:ps-4 max-lg:pe-4">
                                 <Image src="/images/logo.jpg" width={28} height={28} alt="BordarPlus" />
                                 <h2 className="paragraph-2">Bordar Plus.</h2>
-                            </div>
+                            </Link>
                         </div>
                         <div className="h-full col-span-2 max-lg:hidden">
                             <div className="flex link">
-                                <Link
-                                    className="flex-1 flex justify-center items-center border-r border-gray/50 text-center h-20 hover:text-sand transition"
-                                    href="/"
-                                >
-                                    Services
-                                </Link>
-                                <Link
-                                    className="flex-1 flex justify-center items-center border-r border-gray/50 text-center h-20 hover:text-sand transition"
-                                    href="/"
-                                >
-                                    Projects
-                                </Link>
-                                <Link
-                                    className="flex-1 flex justify-center items-center border-r border-gray/50 text-center h-20 hover:text-sand transition"
-                                    href="/"
-                                >
-                                    About us
-                                </Link>
-                                <Link
-                                    className="flex-1 flex justify-center items-center border-r border-gray/50 text-center h-20 hover:text-sand transition"
-                                    href="/"
-                                >
-                                    Clients
-                                </Link>
-                                <Link
-                                    className="flex-1 flex justify-center items-center text-center h-20 hover:text-sand transition"
-                                    href="/"
-                                >
-                                    Solutions
-                                </Link>
+                                {STATIC_LINKS.map((link) => (
+                                    <Link
+                                        key={link.href}
+                                        className="flex-1 flex justify-center items-center not-last-of-type:border-r not-last-of-type:border-gray/50 text-center h-20 hover:text-sand transition"
+                                        href={link.href}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                ))}
                             </div>
                         </div>
                         <div className="h-full max-lg:hidden border-l border-gray/50 flex items-center p-6 xl:gap-8 gap-2">
-                            <Link className="link" href="/">
+                            <Link className="link" href={Routes.CONTACT}>
                                 Contanct Us
                             </Link>
-                            <Link className="link" href="/">
+                            <Link className="link" href={Routes.CONTACT}>
                                 Get a Free Consultation
                             </Link>
                         </div>
@@ -110,14 +90,18 @@ const Header = () => {
                 padding={0}
             >
                 {STATIC_LINKS.map((item) => (
-                    <Link className="block paragraph-1 p-6 border-b border-[#575757]" key={item.label} href={item.href}>
+                    <Link
+                        className="block paragraph-4 font-bold p-6 border-b border-[#575757]"
+                        key={item.label}
+                        href={item.href}
+                    >
                         {item.label}
                     </Link>
                 ))}
-                <Link className="block paragraph-1 p-6 border-b border-[#575757]" href={"/"}>
+                <Link className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
                     Contanct Us
                 </Link>
-                <Link className="block paragraph-1 p-6 border-b border-[#575757]" href={"/"}>
+                <Link className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
                     Get a Consultation
                 </Link>
             </Drawer>
