@@ -1,10 +1,11 @@
-import { Hero, Message } from "@organisms/service";
+import { Approach, Hero, Message } from "@organisms/service";
 
 const ServicesTemplate = () => {
     return (
         <>
             <Hero />
             <Message />
+            <Approach />
         </>
     );
 };
