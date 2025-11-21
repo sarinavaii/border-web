@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
     return (
-        <div className="text-light relative min-h-[870px] h-dvh bg-[url('/images/services-bg.webp')] bg-cover bg-center">
+        <div className="text-light relative h-dvh min-h-[870px] bg-[url('/images/clients-bg.webp')] bg-cover bg-center">
             <div className="absolute inset-0">
                 <XContainer className="h-full lg:px-0!">
                     <div className="grid lg:grid-cols-4 max-lg:hidden h-full">
@@ -21,14 +21,14 @@ const Hero = () => {
             <div className="absolute inset-0 top-[180px] mb-6">
                 <XContainer>
                     <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Comprehensive <br /> Engineering & <br /> Construction Solutions
+                        Building Together with Global Visionaries
                     </h2>
                     <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
-                        From design to execution, we deliver end-to-end construction services with precision, quality,
-                        and innovation
+                        We are proud to collaborate with leading organizations, government entities, and visionary
+                        partners to deliver impactful projects across industries.
                     </div>
                     <XButton as="link" href="/">
-                        Explore Our Services
+                        Contact Us
                     </XButton>
                 </XContainer>
             </div>

@@ -1,5 +1,13 @@
+import { Hero, Logos, Testimonials } from "@organisms/clients";
+
 const ClientsTemplate = () => {
-    return <div>ClientsTemplate</div>;
+    return (
+        <>
+            <Hero />
+            <Logos />
+            <Testimonials />
+        </>
+    );
 };
 
 export default ClientsTemplate;

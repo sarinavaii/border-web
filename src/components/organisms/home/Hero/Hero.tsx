@@ -73,7 +73,7 @@ const Hero = () => {
                 </div>
                 <div className="paragraph-5">Trusted by architects worldwide | BIM • Design • Consulting</div>
             </XContainer>
-            <video playsInline muted autoPlay loop className="w-full h-[870px] object-cover">
+            <video playsInline muted autoPlay loop className="w-full h-dvh min-h-[870px] object-cover">
                 <source src="/video/about.mp4" type="video/mp4" />
             </video>
         </div>

@@ -21,7 +21,7 @@ const Header = () => {
 
     return (
         <>
-            <div className="fixed top-0 h-20 backdrop-blur-md z-1000 left-0 right-0 lg:bg-black/50 bg-black text-light border-b border-gray/50">
+            <div className="fixed top-0 h-20 backdrop-blur-md z-1000 left-0 right-0 lg:bg-black/70 bg-black text-light border-b border-gray/50">
                 <XContainer className="h-full px-0!">
                     <div className="lg:grid flex lg:grid-cols-4 h-full max-lg:justify-between">
                         <XButton
