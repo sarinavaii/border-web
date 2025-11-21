@@ -14,7 +14,7 @@ const ProgressWithSearchParams = () => {
         nprogress.complete();
     }, [pathname, searchParams]);
 
-    return <NavigationProgress size={6} />;
+    return <NavigationProgress size={4} />;
 };
 
 const XNavigationProgress = () => {

@@ -1,6 +1,6 @@
 import XContainer from "@atoms/XContainer";
+import XLink from "@atoms/XLink";
 import Image from "next/image";
-import Link from "next/link";
 
 const Approach = () => {
     const STATIC_DATA = [
@@ -55,7 +55,7 @@ const Approach = () => {
             <XContainer className="lg:px-0!">
                 <div className="grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 lg:divide-x max-lg:divide-y divide-gray">
                     {STATIC_DATA.map((item) => (
-                        <Link
+                        <XLink
                             href="/"
                             key={item.id}
                             className="lg:text-light max-lg:bg-light group px-12 py-[100px] min-h-[400px] flex flex-col justify-between relative overflow-hidden z-1"
@@ -98,7 +98,7 @@ const Approach = () => {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                        </Link>
+                        </XLink>
                     ))}
                 </div>
             </XContainer>

@@ -1,8 +1,8 @@
 export const Routes = {
     // Static routes
     HOME: "/",
-    ABOUT: "/about-us",
-    CONTACT: "/contact-us",
+    ABOUT: "/about",
+    CONTACT: "/contact",
     SERVICES: "/services",
     PROJECTS: "/projects",
     CLIENTS: "/clients",

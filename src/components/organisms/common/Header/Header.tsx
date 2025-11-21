@@ -2,12 +2,12 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import XLink from "@atoms/XLink";
 import { Routes } from "@core/routes/routes";
 import { cn } from "@core/utils";
 import { Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Image from "next/image";
-import Link from "next/link";
 
 const Header = () => {
     const [opened, { open, close }] = useDisclosure(false);
@@ -48,31 +48,31 @@ const Header = () => {
                             </svg>
                         </XButton>
                         <div className="h-full lg:border-r border-gray/50">
-                            <Link href={Routes.HOME} className="flex items-center h-full gap-2 lg:ps-4 max-lg:pe-4">
+                            <XLink href={Routes.HOME} className="flex items-center h-full gap-2 lg:ps-4 max-lg:pe-4">
                                 <Image src="/images/logo.jpg" width={28} height={28} alt="BordarPlus" />
                                 <h2 className="paragraph-2">Bordar Plus.</h2>
-                            </Link>
+                            </XLink>
                         </div>
                         <div className="h-full col-span-2 max-lg:hidden">
                             <div className="flex link">
                                 {STATIC_LINKS.map((link) => (
-                                    <Link
+                                    <XLink
                                         key={link.href}
                                         className="flex-1 flex justify-center items-center not-last-of-type:border-r not-last-of-type:border-gray/50 text-center h-20 hover:text-sand transition"
                                         href={link.href}
                                     >
                                         {link.label}
-                                    </Link>
+                                    </XLink>
                                 ))}
                             </div>
                         </div>
                         <div className="h-full max-lg:hidden border-l border-gray/50 flex items-center p-6 xl:gap-8 gap-2">
-                            <Link className="link" href={Routes.CONTACT}>
+                            <XLink className="link" href={Routes.CONTACT}>
                                 Contanct Us
-                            </Link>
-                            <Link className="link" href={Routes.CONTACT}>
+                            </XLink>
+                            <XLink className="link" href={Routes.CONTACT}>
                                 Get a Free Consultation
-                            </Link>
+                            </XLink>
                         </div>
                     </div>
                 </XContainer>
@@ -90,20 +90,20 @@ const Header = () => {
                 padding={0}
             >
                 {STATIC_LINKS.map((item) => (
-                    <Link
+                    <XLink
                         className="block paragraph-4 font-bold p-6 border-b border-[#575757]"
                         key={item.label}
                         href={item.href}
                     >
                         {item.label}
-                    </Link>
+                    </XLink>
                 ))}
-                <Link className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
+                <XLink className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
                     Contanct Us
-                </Link>
-                <Link className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
+                </XLink>
+                <XLink className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
                     Get a Consultation
-                </Link>
+                </XLink>
             </Drawer>
         </>
     );

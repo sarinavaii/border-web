@@ -1,7 +1,7 @@
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import XLink from "@atoms/XLink";
 import Image from "next/image";
-import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -29,31 +29,31 @@ const Footer = () => {
                     <div className="grow grid lg:grid-cols-6 grid-cols-1">
                         <div className="col-span-3 py-6 flex items-center justify-center lg:border-r-2 max-lg:border-b">
                             <div className="link flex items-center justify-center xl:gap-10 gap-4">
-                                <Link className="hover:text-sand link transition" href="/">
+                                <XLink className="hover:text-sand link transition" href="/">
                                     Services
-                                </Link>
-                                <Link className="hover:text-sand link transition" href="/">
+                                </XLink>
+                                <XLink className="hover:text-sand link transition" href="/">
                                     Portfolio
-                                </Link>
-                                <Link className="hover:text-sand link transition" href="/">
+                                </XLink>
+                                <XLink className="hover:text-sand link transition" href="/">
                                     About Us
-                                </Link>
-                                <Link className="hover:text-sand link transition" href="/">
+                                </XLink>
+                                <XLink className="hover:text-sand link transition" href="/">
                                     Contact Us
-                                </Link>
+                                </XLink>
                             </div>
                         </div>
                         <div className="col-span-3 paragraph-2 py-9 text-center">
                             <a href="mailto:BordarPlus@info.io">BordarPlus@info.io</a>
                         </div>
                         <div className="col-span-2 lg:border-t-2 border-t lg:border-r-2 py-6 text-center">
-                            <Link className="link" href="/">
+                            <XLink className="link" href="/">
                                 Get a Free Consultation
-                            </Link>
+                            </XLink>
                         </div>
                         <div className="col-span-2 lg:border-t-2 border-t lg:border-r-2 py-6 text-center">
                             <div className="link flex items-center justify-center gap-[18px]">
-                                <Link
+                                <XLink
                                     href="/"
                                     className="size-8 rounded-full bg-light hover:bg-sand flex items-center justify-center transition"
                                 >
@@ -72,8 +72,8 @@ const Footer = () => {
                                             strokeLinejoin="round"
                                         />
                                     </svg>
-                                </Link>
-                                <Link
+                                </XLink>
+                                <XLink
                                     href="/"
                                     className="size-8 rounded-full bg-light hover:bg-sand flex items-center justify-center transition"
                                 >
@@ -89,8 +89,8 @@ const Footer = () => {
                                             fill="#1C1C1C"
                                         />
                                     </svg>
-                                </Link>
-                                <Link
+                                </XLink>
+                                <XLink
                                     href="/"
                                     className="size-8 rounded-full bg-light hover:bg-sand flex items-center justify-center transition"
                                 >
@@ -109,8 +109,8 @@ const Footer = () => {
                                             strokeLinejoin="round"
                                         />
                                     </svg>
-                                </Link>
-                                <Link
+                                </XLink>
+                                <XLink
                                     href="/"
                                     className="size-8 rounded-full bg-light hover:bg-sand flex items-center justify-center transition"
                                 >
@@ -126,7 +126,7 @@ const Footer = () => {
                                             fill="#1C1C1C"
                                         />
                                     </svg>
-                                </Link>
+                                </XLink>
                             </div>
                         </div>
                         <div className="col-span-2 lg:border-t-2 border-t lg:border-r-2 py-6 text-center paragraph-5">
