@@ -2,80 +2,95 @@
 
 import { cn } from "@core/utils";
 import { motion } from "framer-motion";
-import { useLenis } from "lenis/react";
 import { useEffect, useState } from "react";
 
 const XScrollToTop = () => {
     const [scrollProgress, setScrollProgress] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
-    const lenis = useLenis();
-
-    console.log(lenis?.scroll, lenis?.progress);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (lenis) {
-                setScrollProgress(lenis.progress * 100);
-                setIsVisible(lenis.scroll > 100);
-            }
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = (scrollTop / scrollHeight) * 100;
+
+            setScrollProgress(progress);
+            setIsVisible(scrollTop > 100);
         };
 
-        // Listen to Lenis scroll events
-        if (lenis) {
-            lenis.on("scroll", handleScroll);
-            return () => {
-                lenis.off("scroll", handleScroll);
-            };
-        }
-    }, [lenis]);
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Initial check
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     const scrollToTop = () => {
-        if (lenis) {
-            lenis.scrollTo(0, {
-                duration: 1.2,
-                easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            });
-        } else {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-            });
-        }
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
     };
 
     return (
         <motion.button
             onClick={scrollToTop}
             className={cn(
-                "fixed bottom-8 right-8 w-14 h-14 rounded-full bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 flex items-center justify-center group z-50",
+                "fixed max-sm:hidden bottom-8 cursor-pointer right-8 w-14 h-14 rounded-full bg-white duration-300 flex items-center justify-center group z-50",
             )}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, scale: 0 }}
             animate={{
                 opacity: isVisible ? 1 : 0,
-                y: isVisible ? 0 : 40,
+                scale: isVisible ? 1 : 0,
             }}
             transition={{
-                duration: 0.3,
+                duration: 0.1,
             }}
             style={{
                 pointerEvents: isVisible ? "auto" : "none",
             }}
-            aria-label="Scroll to top"
         >
-            {/* Progress Circle */}
-            <svg className="absolute inset-0 w-full h-full -rotate-90" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="46" fill="none" stroke="#e5e7eb" strokeWidth="4" />
+            <svg
+                className="absolute inset-0 w-full h-full backdrop-blur-[2px] rounded-full -rotate-90"
+                viewBox="0 0 100 100"
+            >
+                <circle cx="50" cy="50" r="46" fill="none" className="stroke-gray" strokeWidth="4" />
                 <circle
                     cx="50"
                     cy="50"
                     r="46"
                     fill="none"
-                    stroke="#3b82f6"
                     strokeWidth="4"
                     strokeLinecap="round"
                     strokeDasharray={`${2 * Math.PI * 46}`}
                     strokeDashoffset={`${2 * Math.PI * 46 * (1 - scrollProgress / 100)}`}
-                    className="transition-all duration-150"
+                    className="transition-all duration-300 stroke-green"
+                />
+            </svg>
+            <svg
+                className="-rotate-90 z-50"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M14.4297 5.93018L20.4997 12.0002L14.4297 18.0702"
+                    className="stroke-gray"
+                    stroke-width="1.5"
+                    stroke-miterlimit="10"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+                <path
+                    d="M3.5 12H20.33"
+                    className="stroke-gray"
+                    strokeWidth={1.5}
+                    strokeMiterlimit={10}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                 />
             </svg>
         </motion.button>

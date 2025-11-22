@@ -1,4 +1,5 @@
 import XMouseFollower from "@atoms/XMouseFollower/XMouseFollower";
+import XScrollToTop from "@atoms/XScrollToTop";
 import MainProvider from "@core/providers/MainProvider";
 import Footer from "@organisms/common/Footer";
 import Header from "@organisms/common/Header";
@@ -43,7 +44,7 @@ export default function RootLayout({
                         {children}
                         <Footer />
                         <XMouseFollower />
-                        {/* <XScrollToTop /> */}
+                        <XScrollToTop />
                     </main>
                 </MainProvider>
             </body>
