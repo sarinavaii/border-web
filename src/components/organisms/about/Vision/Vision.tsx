@@ -5,7 +5,7 @@ const Vision = () => {
     return (
         <div className="bg-smoke">
             <XContainer className="flex flex-row-reverse max-lg:flex-col px-0! ">
-                <div className="lg:w-1/2 lg:p-12 lg:pt-24 p-6 pt-12">
+                <div className="lg:w-1/2 lg:p-12 lg:py-24 p-6 py-12">
                     <h2 className="lg:header-3 header-4 mb-4">Our Vision</h2>
                     <div className="lg:paragraph-2 paragraph-4 lg:mb-20 mb-10">
                         Shaping tomorrow’s communities with creativity and impact.
@@ -35,7 +35,7 @@ const Vision = () => {
                 />
             </XContainer>
             <XContainer className="flex max-lg:flex-col px-0!">
-                <div className="lg:w-1/2 lg:p-12 lg:pt-24 p-6 pt-12">
+                <div className="lg:w-1/2 lg:p-12 lg:py-24 p-6 py-12">
                     <h2 className="lg:header-3 header-4 mb-4">Our Mission</h2>
                     <div className="lg:paragraph-2 paragraph-4 lg:mb-20 mb-10">
                         Driven by purpose, we build with passion and responsibility

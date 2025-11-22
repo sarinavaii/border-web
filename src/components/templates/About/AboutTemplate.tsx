@@ -1,4 +1,4 @@
-import { Approach, Hero, Message, Timeline, Vision } from "@organisms/about";
+import { Approach, Hero, Message, Team, Timeline, Vision } from "@organisms/about";
 
 const AboutTemplate = () => {
     return (
@@ -6,8 +6,9 @@ const AboutTemplate = () => {
             <Hero />
             <Message />
             <Timeline />
-            <Approach />
             <Vision />
+            <Approach />
+            <Team />
         </>
     );
 };
