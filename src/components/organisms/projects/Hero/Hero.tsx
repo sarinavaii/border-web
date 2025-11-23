@@ -1,22 +1,8 @@
-"use client";
-
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
 const Hero = () => {
-    const words = ["Build", "Design", "Lead", "Execute", "Engineer"];
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % words.length);
-        }, 2000);
-
-        return () => clearInterval(interval);
-    }, [words.length]);
-
     return (
         <div className="text-light relative">
             <div className="absolute inset-0">
