@@ -1,4 +1,4 @@
-import { Approach, Benefits, Hero, Portfolio } from "@organisms/solutions";
+import { Approach, Benefits, Hero, Portfolio, Steps } from "@organisms/solutions";
 
 const SolutionsTemplate = () => {
     return (
@@ -6,6 +6,7 @@ const SolutionsTemplate = () => {
             <Hero />
             <Approach />
             <Benefits />
+            <Steps />
             <Portfolio />
         </>
     );

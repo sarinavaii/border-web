@@ -1,9 +1,10 @@
-import { Hero } from "@organisms/contact";
+import { Hero, Logos } from "@organisms/contact";
 
 const ContactTemplate = () => {
     return (
         <>
             <Hero />
+            <Logos />
         </>
     );
 };
