@@ -68,7 +68,7 @@ const Header = () => {
                         </div>
                         <div className="h-full max-lg:hidden border-l border-gray/50 flex items-center p-6 xl:gap-8 gap-2">
                             <XLink className="link" href={Routes.CONTACT}>
-                                Contanct Us
+                                Contact Us
                             </XLink>
                             <XLink className="link" href={Routes.CONTACT}>
                                 Get a Free Consultation
@@ -94,12 +94,13 @@ const Header = () => {
                         className="block paragraph-4 font-bold p-6 border-b border-[#575757]"
                         key={item.label}
                         href={item.href}
+                        onClick={close}
                     >
                         {item.label}
                     </XLink>
                 ))}
                 <XLink className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
-                    Contanct Us
+                    Contact Us
                 </XLink>
                 <XLink className="block paragraph-4 font-bold p-6 border-b border-[#575757]" href={Routes.CONTACT}>
                     Get a Consultation

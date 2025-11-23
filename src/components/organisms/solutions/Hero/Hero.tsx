@@ -21,13 +21,14 @@ const Hero = () => {
             <div className="absolute inset-0 top-[180px] header-1-mono max-xl:text-7xl! max-lg:text-5xl! max-sm:text-4xl! mb-6">
                 <XContainer>
                     <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Defining the Future of Construction
+                        Solutions That Shape the Future
                     </h2>
                     <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
-                        Explore projects that showcase our commitment to innovation, precision, and timeless quality
+                        Combining engineering expertise, digital innovation, and design thinking to build projects that
+                        are faster, safer, and more sustainable.
                     </div>
                     <XButton as="link" href="/">
-                        Contact Us
+                        Explore Our Solutions
                     </XButton>
                 </XContainer>
             </div>
@@ -50,7 +51,7 @@ const Hero = () => {
                 <div className="paragraph-5">Trusted by architects worldwide | BIM • Design • Consulting</div>
             </XContainer>
             <video playsInline muted autoPlay loop className="w-full h-dvh min-h-[870px] object-cover">
-                <source src="/video/projects.mp4" type="video/mp4" />
+                <source src="/video/solutions.mp4" type="video/mp4" />
             </video>
         </div>
     );

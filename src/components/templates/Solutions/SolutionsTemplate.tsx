@@ -1,5 +1,11 @@
+import { Hero } from "@organisms/solutions";
+
 const SolutionsTemplate = () => {
-    return <div>SolutionsTemplate</div>;
+    return (
+        <>
+            <Hero />
+        </>
+    );
 };
 
 export default SolutionsTemplate;

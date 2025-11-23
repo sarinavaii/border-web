@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Hero = () => {
     return (
-        <div className="text-light relative">
+        <div className="text-light relative h-dvh min-h-[870px] bg-[url('/images/clients-bg.webp')] bg-cover bg-center">
             <div className="absolute inset-0">
                 <XContainer className="h-full lg:px-0!">
                     <div className="grid lg:grid-cols-4 max-lg:hidden h-full">
@@ -18,16 +18,17 @@ const Hero = () => {
                 </XContainer>
             </div>
             <div className="absolute inset-0 bg-black/40"></div>
-            <div className="absolute inset-0 top-[180px] header-1-mono max-xl:text-7xl! max-lg:text-5xl! max-sm:text-4xl! mb-6">
+            <div className="absolute inset-0 top-[180px] mb-6">
                 <XContainer>
                     <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Defining the Future of Construction
+                        Let’s Build the Future Together.
                     </h2>
                     <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
-                        Explore projects that showcase our commitment to innovation, precision, and timeless quality
+                        We are proud to collaborate with leading organizations, government entities, and visionary
+                        partners to deliver impactful projects across industries.
                     </div>
                     <XButton as="link" href="/">
-                        Contact Us
+                        Start a Conversation
                     </XButton>
                 </XContainer>
             </div>
@@ -49,9 +50,6 @@ const Hero = () => {
                 </div>
                 <div className="paragraph-5">Trusted by architects worldwide | BIM • Design • Consulting</div>
             </XContainer>
-            <video playsInline muted autoPlay loop className="w-full h-dvh min-h-[870px] object-cover">
-                <source src="/video/projects.mp4" type="video/mp4" />
-            </video>
         </div>
     );
 };

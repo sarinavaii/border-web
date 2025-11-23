@@ -1,5 +1,11 @@
+import { Hero } from "@organisms/contact";
+
 const ContactTemplate = () => {
-    return <div>ContactTemplate</div>;
+    return (
+        <>
+            <Hero />
+        </>
+    );
 };
 
 export default ContactTemplate;
