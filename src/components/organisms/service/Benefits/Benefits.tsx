@@ -2,7 +2,7 @@ import XContainer from "@atoms/XContainer";
 
 const Benefits = () => {
     return (
-        <div className="lg:border-b border-gray">
+        <div className="lg:border-b border-gray relative">
             <XContainer className="flex max-lg:flex-col px-0!">
                 <div className="lg:w-1/2 lg:p-12 lg:pt-24 p-6 pt-12">
                     <h2 className="lg:header-3 header-4 mb-4">We don’t just deliver projects</h2>
@@ -42,9 +42,17 @@ const Benefits = () => {
                         ))}
                     </div>
                 </div>
-                <video playsInline muted autoPlay loop className="lg:w-1/2 h-auto object-cover">
-                    <source src="/video/about.mp4" type="video/mp4" />
-                </video>
+                <div className="lg:w-1/2 w-full h-auto">
+                    <video
+                        playsInline
+                        muted
+                        autoPlay
+                        loop
+                        className="h-full object-cover lg:absolute lg:left-1/2 lg:right-0 lg:w-1/2 w-full"
+                    >
+                        <source src="/video/about.mp4" type="video/mp4" />
+                    </video>
+                </div>
             </XContainer>
         </div>
     );
