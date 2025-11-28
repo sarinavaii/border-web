@@ -42,7 +42,9 @@ const XMouseFollower = () => {
         isDesktop && (
             <>
                 <motion.div
-                    className={cn("fixed top-8 left-8 bg-dark/30 rounded-full pointer-events-none z-1002 opacity-20")}
+                    className={cn(
+                        "fixed top-8 left-8 border-dark/70 border rounded-full pointer-events-none z-1002 opacity-20",
+                    )}
                     animate={{
                         x: mousePosition.x - (isHovering ? 0 : 16),
                         y: mousePosition.y - (isHovering ? 0 : 16),

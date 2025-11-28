@@ -12,6 +12,8 @@ const Map = () => {
                 </h3>
             </XContainer>
             <LibreMap
+                scrollZoom={false}
+                attributionControl={false}
                 initialViewState={{
                     latitude: 35.744156,
                     longitude: 51.449181,
