@@ -1,9 +1,11 @@
-import { Hero, Logos } from "@organisms/contact";
+import { Hero, Info, Logos, Map } from "@organisms/contact";
 
 const ContactTemplate = () => {
     return (
         <>
             <Hero />
+            <Info />
+            <Map />
             <Logos />
         </>
     );
