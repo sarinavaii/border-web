@@ -46,7 +46,14 @@ export default function RootLayout({
                     id="global-loader"
                     className="fixed inset-0 backdrop-blur-lg bg-black/80 w-full h-dvh z-9999 flex flex-col gap-4 items-center justify-center"
                 >
-                    <Image src="/images/logo.png" width={50} height={36} alt="BordarPlus" className="object-contain" />
+                    <Image
+                        src="/images/logo.png"
+                        width={50}
+                        height={36}
+                        alt="BordarPlus"
+                        className="object-contain"
+                        priority
+                    />
                     <Hatch size="36" stroke="8" speed="5" color="#6e7170" />
                 </div>
                 <MainProvider>
