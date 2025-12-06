@@ -23,7 +23,7 @@ const Footer = () => {
 
                 <div className="flex lg:flex-row flex-col lg:border-2 border border-light">
                     <div className="lg:px-[60px] flex items-center justify-center lg:border-r-2 max-lg:border-b gap-2 py-8">
-                        <Image src="/images/logo.jpg" width={28} height={28} alt="BordarPlus" />
+                        <Image src="/images/logo.png" width={50} height={36} alt="BordarPlus" />
                         <h2 className="paragraph-2">Bordar Plus.</h2>
                     </div>
                     <div className="grow grid lg:grid-cols-6 grid-cols-1">

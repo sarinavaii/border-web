@@ -49,7 +49,13 @@ const Header = () => {
                         </XButton>
                         <div className="h-full lg:border-r border-gray/50">
                             <XLink href={Routes.HOME} className="flex items-center h-full gap-2 lg:ps-4 max-lg:pe-4">
-                                <Image src="/images/logo.jpg" width={28} height={28} alt="BordarPlus" />
+                                <Image
+                                    src="/images/logo.png"
+                                    width={50}
+                                    height={36}
+                                    alt="BordarPlus"
+                                    className="object-contain"
+                                />
                                 <h2 className="paragraph-2">Bordar Plus.</h2>
                             </XLink>
                         </div>
