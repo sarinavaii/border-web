@@ -1,14 +1,17 @@
 "use client";
 
+import { animate } from "framer-motion";
 import { useEffect } from "react";
 
 const XLoader = () => {
     useEffect(() => {
         const loader = document.getElementById("global-loader");
         if (loader) {
-            loader.style.opacity = "0";
-            loader.style.transition = "opacity 0.5s";
-            setTimeout(() => (loader.style.display = "none"), 1500);
+            const controls = animate(loader, { opacity: 0 }, { duration: 0.5, delay: 2 });
+            controls.then(() => {
+                loader.style.display = "none";
+            });
+            return () => controls.stop();
         }
     }, []);
 
