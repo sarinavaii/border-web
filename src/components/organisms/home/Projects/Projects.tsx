@@ -2,6 +2,7 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import { ProjectSection } from "@services/types/main-page.types";
 import Image from "next/image";
 import { useRef } from "react";
 import "swiper/css";
@@ -9,7 +10,7 @@ import "swiper/css/effect-creative";
 import { EffectCreative } from "swiper/modules";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
-const Projects = () => {
+const Projects = ({ data }: { data: ProjectSection }) => {
     const swiperRef = useRef<SwiperRef | null>(null);
 
     const STATIC_PROJECTS = [

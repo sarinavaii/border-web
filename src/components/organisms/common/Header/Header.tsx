@@ -7,9 +7,10 @@ import { Routes } from "@core/routes/routes";
 import { cn } from "@core/utils";
 import { Drawer } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { LogoResponse } from "@services/types/logo.types";
 import Image from "next/image";
 
-const Header = () => {
+const Header = ({ data }: { data: LogoResponse }) => {
     const [opened, { open, close }] = useDisclosure(false);
     const STATIC_LINKS = [
         { label: "Services", href: Routes.SERVICES },
@@ -18,6 +19,8 @@ const Header = () => {
         { label: "Clients", href: Routes.CLIENTS },
         { label: "Solutions", href: Routes.SOLUTIONS },
     ];
+
+    const logoSrc = data.data.image_url ?? "/images/logo.png";
 
     return (
         <>
@@ -50,7 +53,7 @@ const Header = () => {
                         <div className="h-full lg:border-r border-gray/50">
                             <XLink href={Routes.HOME} className="flex items-center h-full gap-2 lg:ps-4 max-lg:pe-4">
                                 <Image
-                                    src="/images/logo.png"
+                                    src={logoSrc}
                                     width={50}
                                     height={36}
                                     alt="BordarPlus"

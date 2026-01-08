@@ -22,6 +22,7 @@
             "@styles/*": ["./src/styles/*"],
             "@i18n/*": ["./src/i18n/*"],
             "@core/*": ["./src/core/*"],
+            "@services/*": ["./src/services/*"],
             "@atoms/*": ["./src/components/atoms/*"],
             "@molecules/*": ["./src/components/molecules/*"],
             "@organisms/*": ["./src/components/organisms/*"],

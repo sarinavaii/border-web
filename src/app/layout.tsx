@@ -1,9 +1,8 @@
 import XLoader from "@atoms/XLoader";
 import XMouseFollower from "@atoms/XMouseFollower/XMouseFollower";
 import XScrollToTop from "@atoms/XScrollToTop";
+import MainLayout from "@core/layouts/MainLayout";
 import MainProvider from "@core/providers/MainProvider";
-import Footer from "@organisms/common/Footer";
-import Header from "@organisms/common/Header";
 import "@styles/globals.css";
 import { Hatch } from "ldrs/react";
 import "ldrs/react/Hatch.css";
@@ -58,9 +57,7 @@ export default function RootLayout({
                 </div>
                 <MainProvider>
                     <main className="font-encode-sans-semi-condensed bg-light text-dark select-none">
-                        <Header />
-                        {children}
-                        <Footer />
+                        <MainLayout>{children}</MainLayout>
                         <XMouseFollower />
                         <XLoader />
                         <XScrollToTop />
