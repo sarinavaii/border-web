@@ -2,9 +2,10 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import { SliderSection } from "@services/types/services-page.types";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ data }: { data: SliderSection }) => {
     return (
         <div className="text-light relative min-h-[870px] h-dvh bg-[url('/images/services-bg.webp')] bg-cover bg-center">
             <div className="absolute inset-0">
@@ -20,15 +21,10 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 top-[180px] mb-6">
                 <XContainer>
-                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Comprehensive <br /> Engineering & <br /> Construction Solutions
-                    </h2>
-                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
-                        From design to execution, we deliver end-to-end construction services with precision, quality,
-                        and innovation
-                    </div>
-                    <XButton as="link" href="/">
-                        Explore Our Services
+                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">{data.data.title}</h2>
+                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">{data.data.description}</div>
+                    <XButton as="link" href={data.data.button_url}>
+                        {data.data.button_name}
                     </XButton>
                 </XContainer>
             </div>

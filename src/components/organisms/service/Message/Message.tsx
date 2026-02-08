@@ -1,9 +1,10 @@
 "use client";
 
 import XContainer from "@atoms/XContainer";
+import { ServicesDescriptionSection } from "@services/types/services-page.types";
 import { useEffect, useRef } from "react";
 
-const Message = () => {
+const Message = ({ data }: { data: ServicesDescriptionSection }) => {
     const svgRef = useRef<SVGSVGElement | null>(null);
     const mousePos = useRef({ x: 0.5, y: 0.5 });
     const currentOffset = useRef({ x: 0, y: 0 });
@@ -167,11 +168,7 @@ const Message = () => {
 
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
                 <XContainer>
-                    <div className="lg:header-2 paragraph-2 lg:font-encode-sans-expanded">
-                        We provide a wide spectrum of construction services tailored to meet the needs of complex,
-                        large-scale projects. Our approach combines engineering excellence, safety, and sustainability
-                        to ensure long-term impact.
-                    </div>
+                    <div className="lg:header-2 paragraph-2 lg:font-encode-sans-expanded">{data.data.description}</div>
                 </XContainer>
             </div>
         </div>

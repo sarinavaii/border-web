@@ -2,6 +2,7 @@ import { ClientsPageResponse } from "@services/types/clients-page.types";
 import { FooterResponse } from "@services/types/footer.types";
 import { LogoResponse } from "@services/types/logo.types";
 import { MainPageResponse } from "@services/types/main-page.types";
+import { ServicesPageResponse } from "@services/types/services-page.types";
 
 const API_BASE = "http://89.42.199.146/v1";
 
@@ -34,4 +35,5 @@ export const api = {
     getFooter: () => fetchAPI<FooterResponse>("/core/site_footer"),
     getMainPage: () => fetchAPI<MainPageResponse>("/home/main_page"),
     getClients: () => fetchAPI<ClientsPageResponse>("/client/client_page"),
+    getServicesPage: () => fetchAPI<ServicesPageResponse>("/services/services_page"),
 };
