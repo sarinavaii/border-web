@@ -1,3 +1,4 @@
+import { ClientsPageResponse } from "@services/types/clients-page.types";
 import { FooterResponse } from "@services/types/footer.types";
 import { LogoResponse } from "@services/types/logo.types";
 import { MainPageResponse } from "@services/types/main-page.types";
@@ -14,4 +15,5 @@ export const api = {
     getLogo: () => fetchAPI<LogoResponse>("/core/site_logo"),
     getFooter: () => fetchAPI<FooterResponse>("/core/site_footer"),
     getMainPage: () => fetchAPI<MainPageResponse>("/home/main_page"),
+    getClients: () => fetchAPI<ClientsPageResponse>("/client/client_page"),
 };

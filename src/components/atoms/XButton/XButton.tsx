@@ -41,7 +41,7 @@ const XButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, XButtonP
 
         const internalClassNames = {
             ...classNames,
-            root: cn("relative overflow-hidden group", (classNames as Record<string, string>)?.root),
+            root: cn("relative overflow-hidden group capitalize", (classNames as Record<string, string>)?.root),
             label: cn("relative z-10", (classNames as Record<string, string>)?.label),
             inner: cn(
                 currentMode.base,

@@ -2,9 +2,12 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import { ClientsSliderSection } from "@services/types/clients-page.types";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ data }: { data: ClientsSliderSection }) => {
+    const sliderData = data.data;
+
     return (
         <div className="text-light relative h-dvh min-h-[870px] bg-[url('/images/clients-bg.webp')] bg-cover bg-center">
             <div className="absolute inset-0">
@@ -20,15 +23,10 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 top-[180px] mb-6">
                 <XContainer>
-                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Building Together with Global Visionaries
-                    </h2>
-                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
-                        We are proud to collaborate with leading organizations, government entities, and visionary
-                        partners to deliver impactful projects across industries.
-                    </div>
-                    <XButton as="link" href="/">
-                        Contact Us
+                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">{sliderData.title}</h2>
+                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">{sliderData.description}</div>
+                    <XButton as="link" href={sliderData.button_url}>
+                        {sliderData.button_name}
                     </XButton>
                 </XContainer>
             </div>
