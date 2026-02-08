@@ -56,11 +56,11 @@ const Footer = ({ data }: { data: FooterResponse }) => {
                             <div className="link flex items-center justify-center gap-[18px]">
                                 {data.footer.data.social_links.map((item) => (
                                     <XLink
-                                        key={item.data.title}
-                                        href="/"
+                                        key={item.title}
+                                        href={item.social_link}
                                         className="size-8 rounded-full bg-light hover:scale-105 flex items-center justify-center transition"
                                     >
-                                        <Image src={item.data.image_url} width={15} height={15} alt={item.data.title} />
+                                        <Image src={item.image_url} width={15} height={15} alt={item.title} />
                                     </XLink>
                                 ))}
                             </div>

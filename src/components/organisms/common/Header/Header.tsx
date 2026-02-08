@@ -19,8 +19,7 @@ const Header = ({ data }: { data: LogoResponse }) => {
         { label: "Clients", href: Routes.CLIENTS },
         { label: "Solutions", href: Routes.SOLUTIONS },
     ];
-
-    const logoSrc = data.data.image_url ?? "/images/logo.png";
+    const logoSrc = data?.data?.image_url ?? "/images/logo.png";
 
     return (
         <>

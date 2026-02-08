@@ -1,9 +1,7 @@
 export interface FooterSocialLink {
-    type: "social_link";
-    data: {
-        title: string;
-        image_url: string;
-    };
+    title: string;
+    image_url: string;
+    social_link: string;
 }
 
 export interface FooterData {
