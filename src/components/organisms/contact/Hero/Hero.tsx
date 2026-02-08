@@ -2,11 +2,16 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import { SliderSection } from "@services/types/contact-us-page.types";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ data }: { data: SliderSection }) => {
+    const bg = data.data.file_url;
     return (
-        <div className="text-light relative h-dvh min-h-[870px] bg-[url('/images/clients-bg.webp')] bg-cover bg-center">
+        <div
+            className="text-light relative h-dvh min-h-[870px] bg-cover bg-center"
+            style={{ backgroundImage: `url(${bg})` }}
+        >
             <div className="absolute inset-0">
                 <XContainer className="h-full lg:px-0!">
                     <div className="grid lg:grid-cols-4 max-lg:hidden h-full">
@@ -20,15 +25,13 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 top-[180px] mb-6">
                 <XContainer>
-                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Let’s Build the Future Together.
-                    </h2>
+                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">{data.data.title}</h2>
                     <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
                         We are proud to collaborate with leading organizations, government entities, and visionary
                         partners to deliver impactful projects across industries.
                     </div>
-                    <XButton as="link" href="/">
-                        Start a Conversation
+                    <XButton as="link" href={data.data.button_url}>
+                        {data.data.button_name}
                     </XButton>
                 </XContainer>
             </div>

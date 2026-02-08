@@ -4,16 +4,19 @@ import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
 import { Checkbox, NumberInput, TextInput, Textarea } from "@mantine/core";
 import { isNotEmpty, useForm } from "@mantine/form";
+import { notifications } from "@mantine/notifications";
+import { api } from "@services/api/endpoints";
+import { GetInTouchContactUsImageSection } from "@services/types/contact-us-page.types";
 import Image from "next/image";
 
-const Form = () => {
+const Form = ({ data }: { data: GetInTouchContactUsImageSection }) => {
     const form = useForm({
         mode: "uncontrolled",
         validateInputOnBlur: true,
         validate: {
             first_name: isNotEmpty("First name is required"),
             last_name: isNotEmpty("Last name is required"),
-            phone: isNotEmpty("Phone number is required"),
+            phone_number: isNotEmpty("Phone number is required"),
             message: isNotEmpty("Message is required"),
             terms: isNotEmpty("You must agree to our friendly privacy policy"),
             email: (value: string) => {
@@ -37,7 +40,21 @@ const Form = () => {
                         Our friendly team would love to hear from you.
                     </div>
                     <form
-                        onSubmit={form.onSubmit((values) => console.log(values))}
+                        onSubmit={form.onSubmit(async (values) => {
+                            await api.postContactForm(values);
+                            notifications.show({
+                                title: "Message sent",
+                                message: "Your message has been sent successfully",
+                                color: "green",
+                                classNames: {
+                                    closeButton: "text-black!",
+                                    description: "text-black!",
+                                    title: "text-black!",
+                                },
+                                position: "bottom-left",
+                            });
+                            form.reset();
+                        })}
                         className="grid grid-cols-2 gap-x-8 gap-y-6"
                     >
                         <TextInput
@@ -88,8 +105,8 @@ const Form = () => {
                             label="Phone number"
                             placeholder="+1 (555) 000-0000"
                             hideControls
-                            key={form.key("phone")}
-                            {...form.getInputProps("phone")}
+                            key={form.key("phone_number")}
+                            {...form.getInputProps("phone_number")}
                         />
                         <Textarea
                             size="lg"
@@ -128,7 +145,7 @@ const Form = () => {
                 </div>
                 <div className="lg:w-1/2 w-full h-auto">
                     <Image
-                        src="/images/contact/contact-form.webp"
+                        src={data.data.image_url}
                         width={1775}
                         height={2445}
                         alt="contact"

@@ -1,22 +1,22 @@
 "use client";
 
 import XContainer from "@atoms/XContainer";
+import { MapSection } from "@services/types/contact-us-page.types";
 import { FullscreenControl, Map as LibreMap, Marker, NavigationControl } from "@vis.gl/react-maplibre";
 import "maplibre-gl/dist/maplibre-gl.css";
-const Map = () => {
+
+const Map = ({ data }: { data: MapSection }) => {
     return (
         <div className="bg-dark">
             <XContainer className="lg:py-24 py-16 text-light">
-                <h3 className="lg:header-3 header-4 lg:mb-8 mb-4">
-                    Caption: Visit our headquarters — we’d love to meet you in person.
-                </h3>
+                <h3 className="lg:header-3 header-4 lg:mb-8 mb-4">{data.data.title}</h3>
             </XContainer>
             <LibreMap
                 scrollZoom={false}
                 attributionControl={false}
                 initialViewState={{
-                    latitude: 35.744156,
-                    longitude: 51.449181,
+                    latitude: data.data.lat,
+                    longitude: data.data.long,
                     zoom: 4,
                 }}
                 RTLTextPlugin={
@@ -28,15 +28,15 @@ const Map = () => {
                 <FullscreenControl position="top-right" />
                 <NavigationControl position="top-right" />
                 <Marker
-                    longitude={51.449181}
-                    latitude={35.744156}
+                    longitude={data.data.long}
+                    latitude={data.data.lat}
                     anchor="bottom"
                     style={{
                         cursor: "pointer",
                     }}
                     onClick={() =>
                         window.open(
-                            "http://google.com/maps/place/Tehran+Province,+Tehran,+Hafez+Alley,+Iran/@35.7443603,51.4419823,17z/data=!3m1!4b1!4m10!1m2!2m1!1sHafez+Alley+Tehran+Province+Tehran!3m6!1s0x3f8e03f41ce4059d:0xdc8aa62cdf408cde!8m2!3d35.744356!4d51.4468532!15sCiJIYWZleiBBbGxleSBUZWhyYW4gUHJvdmluY2UgVGVocmFukgEFcm91dGXgAQA!16s%2Fg%2F11bc8ys12l?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D",
+                            `https://www.google.com/maps?q=${data.data.lat},${data.data.long}`,
                             "_blank",
                             "noopener,noreferrer",
                         )

@@ -1,15 +1,14 @@
 import XContainer from "@atoms/XContainer";
 import XLink from "@atoms/XLink";
+import { GetInTouchSection } from "@services/types/contact-us-page.types";
 import Image from "next/image";
 
-const Info = () => {
+const Info = ({ data }: { data: GetInTouchSection }) => {
     return (
         <div>
             <XContainer className="lg:py-24 py-16">
-                <h3 className="lg:header-3 header-4 lg:mb-8 mb-4">Get in Touch</h3>
-                <div className="lg:paragraph-2 paragraph-4 max-w-[465px]">
-                    Reach us through the channels below — every detail matters to us
-                </div>
+                <h3 className="lg:header-3 header-4 lg:mb-8 mb-4">{data.data.title}</h3>
+                <div className="lg:paragraph-2 paragraph-4 max-w-[465px]">{data.data.description}</div>
             </XContainer>
             <div className="border-t border-gray">
                 <XContainer className="lg:px-0! max-lg:pb-16">

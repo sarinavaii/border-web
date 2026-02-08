@@ -1,4 +1,5 @@
 import { ClientsPageResponse } from "@services/types/clients-page.types";
+import { ContactUsPageResponse } from "@services/types/contact-us-page.types";
 import { FooterResponse } from "@services/types/footer.types";
 import { LogoResponse } from "@services/types/logo.types";
 import { MainPageResponse } from "@services/types/main-page.types";
@@ -6,11 +7,23 @@ import { ServicesPageResponse } from "@services/types/services-page.types";
 
 const API_BASE = "http://89.42.199.146/v1";
 
-async function fetchAPI<T>(endpoint: string): Promise<T> {
+async function fetchAPI<T>(
+    endpoint: string,
+    method: "GET" | "POST" = "GET",
+    body?: Record<string, unknown>,
+): Promise<T> {
+    console.log({
+        body,
+        method,
+    });
     const url = `${API_BASE}${endpoint}`;
     let res: Response;
     try {
-        res = await fetch(url);
+        res = await fetch(url, {
+            method,
+            body: body ? JSON.stringify(body) : undefined,
+            headers: { "Content-Type": "application/json", Accept: "application/json" },
+        });
     } catch (networkError) {
         throw new Error(`Network error while fetching "${url}": ${networkError}`);
     }
@@ -36,4 +49,6 @@ export const api = {
     getMainPage: () => fetchAPI<MainPageResponse>("/home/main_page"),
     getClients: () => fetchAPI<ClientsPageResponse>("/client/client_page"),
     getServicesPage: () => fetchAPI<ServicesPageResponse>("/services/services_page"),
+    getContactPage: () => fetchAPI<ContactUsPageResponse>("/contact_us/contact_us_page"),
+    postContactForm: (body: Record<string, unknown>) => fetchAPI<void>("/contact_us/create_contact_us/", "POST", body),
 };
