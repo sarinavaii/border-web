@@ -1,5 +1,4 @@
 import XContainer from "@atoms/XContainer";
-import XLink from "@atoms/XLink";
 import { GetInTouchSection } from "@services/types/contact-us-page.types";
 import Image from "next/image";
 
@@ -13,7 +12,22 @@ const Info = ({ data }: { data: GetInTouchSection }) => {
             <div className="border-t border-gray">
                 <XContainer className="lg:px-0! max-lg:pb-16">
                     <div className="grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 lg:divide-x max-lg:divide-y divide-gray lg:*:min-h-[400px] *:min-h-[300px]">
-                        <div className="p-8 relative flex flex-col gap-4 justify-center">
+                        {data.data.touch_variants.map((item) => {
+                            return (
+                                <div key={item.title} className="p-8 relative flex flex-col gap-4 justify-center">
+                                    <Image
+                                        src={item.image_url}
+                                        alt={item.title}
+                                        width={96}
+                                        height={96}
+                                        className="absolute right-4 top-4 lg:size-24 size-16"
+                                    />
+                                    <div className="lg:header-4 header-5 capitalize">{item.title}</div>
+                                    <div className="lg:header-3 header-4">{item.link}</div>
+                                </div>
+                            );
+                        })}
+                        {/* <div className="p-8 relative flex flex-col gap-4 justify-center">
                             <Image
                                 src={"/images/contact/sms.png"}
                                 alt={"contact"}
@@ -49,8 +63,8 @@ const Info = ({ data }: { data: GetInTouchSection }) => {
                             />
                             <div className="lg:header-4 header-5">Main Headquarters</div>
                             <div className="lg:header-3 header-4">Tehran, IR</div>
-                        </div>
-                        <div className="p-8 relative flex flex-col gap-4 justify-center">
+                        </div> */}
+                        {/* <div className="p-8 relative flex flex-col gap-4 justify-center">
                             <Image
                                 src={"/images/contact/people.png"}
                                 alt={"contact"}
@@ -70,7 +84,7 @@ const Info = ({ data }: { data: GetInTouchSection }) => {
                                     Facebook
                                 </XLink>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </XContainer>
             </div>

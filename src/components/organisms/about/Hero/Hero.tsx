@@ -2,11 +2,16 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import { AboutUsSliderSection } from "@services/types/about-us-page.types";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ data }: { data: AboutUsSliderSection }) => {
+    const sliderData = data.data;
     return (
-        <div className="text-light relative h-dvh min-h-[870px] bg-[url('/images/about-bg.webp')] bg-cover bg-center">
+        <div
+            className="text-light relative h-dvh min-h-[870px] bg-cover bg-center"
+            style={{ backgroundImage: `url(${sliderData.file_url})` }}
+        >
             <div className="absolute inset-0">
                 <XContainer className="h-full lg:px-0!">
                     <div className="grid lg:grid-cols-4 max-lg:hidden h-full">
@@ -20,15 +25,10 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 top-[180px] mb-6">
                 <XContainer>
-                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Building Legacies, <br /> Shaping the Future
-                    </h2>
-                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
-                        From our first project to our latest innovation, our journey has always been about creating
-                        impact that lasts
-                    </div>
-                    <XButton as="link" href="/">
-                        Discover Our Story
+                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">{data.data.title}</h2>
+                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">{data.data.description}</div>
+                    <XButton as="link" href={data.data.button_url}>
+                        {data.data.button_name}
                     </XButton>
                 </XContainer>
             </div>

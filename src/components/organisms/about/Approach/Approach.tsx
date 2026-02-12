@@ -1,8 +1,8 @@
 import XContainer from "@atoms/XContainer";
-import XLink from "@atoms/XLink";
+import { PrincipleSection } from "@services/types/about-us-page.types";
 import Image from "next/image";
 
-const Approach = () => {
+const Approach = ({ data }: { data: PrincipleSection }) => {
     const STATIC_DATA = [
         {
             id: 1,
@@ -34,17 +34,14 @@ const Approach = () => {
     return (
         <div className="bg-dark">
             <XContainer className="lg:pt-[126px] pt-16 lg:pb-16 pb-12 text-light">
-                <h3 className="lg:header-3 header-4 lg:mb-8 mb-4">The Principles That Define Us</h3>
-                <div className="lg:paragraph-2 paragraph-4 max-w-[465px]">
-                    Our values guide every project, every decision, and every relationship we build.
-                </div>
+                <h3 className="lg:header-3 header-4 lg:mb-8 mb-4">{data.data.title}</h3>
+                <div className="lg:paragraph-2 paragraph-4 max-w-[465px]">{data.data.description}</div>
             </XContainer>
             <XContainer className="lg:px-0! max-lg:pb-16">
                 <div className="grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 lg:divide-x max-lg:divide-y divide-gray">
-                    {STATIC_DATA.map((item) => (
-                        <XLink
-                            href="/"
-                            key={item.id}
+                    {data.data.variant.map((item) => (
+                        <div
+                            key={item.title}
                             className="lg:text-light max-lg:bg-light group px-12 py-[100px] min-h-[400px] flex flex-col justify-between relative overflow-hidden z-1"
                         >
                             <span
@@ -52,7 +49,7 @@ const Approach = () => {
                                 className="pointer-events-none absolute -z-10 max-lg:hidden inset-0 left-0 top-0 h-full bg-light transition-all duration-300 group-hover:w-full w-0"
                             />
                             <Image
-                                src={item.image}
+                                src={item.image_url}
                                 alt={item.title}
                                 width={96}
                                 height={96}
@@ -85,7 +82,7 @@ const Approach = () => {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                        </XLink>
+                        </div>
                     ))}
                 </div>
             </XContainer>

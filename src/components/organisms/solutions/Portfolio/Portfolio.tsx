@@ -1,9 +1,11 @@
 "use client";
 
 import XContainer from "@atoms/XContainer";
+import { DigitalInfrastructureSection } from "@services/types/solutions-page.types";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
-const Portfolio = () => {
+const Portfolio = ({ data }: { data: DigitalInfrastructureSection }) => {
     const svgRef = useRef<SVGSVGElement | null>(null);
     const mousePos = useRef({ x: 0.5, y: 0.5 });
     const currentOffset = useRef({ x: 0, y: 0 });
@@ -168,36 +170,24 @@ const Portfolio = () => {
 
             <XContainer>
                 <div className="relative z-1 text-light text-center lg:px-12 lg:header-2 paragraph-2 lg:font-encode-sans-expanded">
-                    <h2 className="lg:header-3 header-4 mb-8">Our Digital Infrastructure</h2>
-                    <div className="lg:paragraph-2 paragraph-4 mb-20">
-                        From global platforms to in-house software, our technology empowers precision, safety, and
-                        performance.
-                    </div>
+                    <h2 className="lg:header-3 header-4 mb-8">{data.data.title}</h2>
+                    <div className="lg:paragraph-2 paragraph-4 mb-20">{data.data.description}</div>
                     <div className="grid xl:grid-cols-4 grid-cols-1 xl:divide-x divide-y divide-gray">
-                        {[1, 2, 3, 4].map((item) => (
+                        {data.data.variants.map((item, index) => (
                             <div
-                                key={item}
+                                key={item.title + index}
                                 className="flex flex-col justify-between items-center text-center bg-light text-dark px-8 py-12 xl:gap-20 gap-4"
                             >
-                                <h4 className="header-4">ProjectX</h4>
-                                <svg
-                                    className="xl:size-24 size-16"
-                                    width="96"
-                                    height="96"
-                                    viewBox="0 0 96 96"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        d="M25.776 18V78H12V18H25.776ZM60.156 18C60.156 30.582 55.407 42.315 46.911 51.204L46.077 52.053L65.106 78H48.102L27.423 49.8L32.76 45.804C41.334 39.384 46.365 29.67 46.671 19.032L46.686 18H60.156ZM76.5 63C78.4891 63 80.3968 63.7902 81.8033 65.1967C83.2098 66.6032 84 68.5109 84 70.5C84 72.4891 83.2098 74.3968 81.8033 75.8033C80.3968 77.2098 78.4891 78 76.5 78C74.5109 78 72.6032 77.2098 71.1967 75.8033C69.7902 74.3968 69 72.4891 69 70.5C69 68.5109 69.7902 66.6032 71.1967 65.1967C72.6032 63.7902 74.5109 63 76.5 63Z"
-                                        fill="black"
-                                    />
-                                </svg>
+                                <h4 className="header-4 capitalize">{item.title}</h4>
 
-                                <div className="paragraph-4">
-                                    A real-time project management dashboard designed to streamline complex construction
-                                    workflows.
-                                </div>
+                                <Image
+                                    className="xl:size-24 size-16 object-contain"
+                                    src={item.image_url}
+                                    alt={item.title}
+                                    width={96}
+                                    height={96}
+                                />
+                                <div className="paragraph-4">{item.description}</div>
                             </div>
                         ))}
                     </div>

@@ -1,9 +1,10 @@
 "use client";
 
 import XContainer from "@atoms/XContainer";
+import { AboutUsDescriptionSection } from "@services/types/about-us-page.types";
 import { useEffect, useRef } from "react";
 
-const Message = () => {
+const Message = ({ data }: { data: AboutUsDescriptionSection }) => {
     const svgRef = useRef<SVGSVGElement | null>(null);
     const mousePos = useRef({ x: 0.5, y: 0.5 });
     const currentOffset = useRef({ x: 0, y: 0 });
@@ -168,12 +169,7 @@ const Message = () => {
 
             <XContainer>
                 <div className="flex items-center justify-center text-center">
-                    <div className="lg:header-2 paragraph-2 lg:font-encode-sans-expanded">
-                        Founded with a vision to transform the construction landscape, we started as a small team driven
-                        by passion and commitment. Over the years, our expertise and dedication have grown into a
-                        trusted brand that delivers innovative, sustainable, and landmark projects. Today, we stand as a
-                        partner of choice for clients seeking quality, reliability, and a future-oriented approach.
-                    </div>
+                    <div className="lg:header-2 paragraph-2 lg:font-encode-sans-expanded">{data.data.description}</div>
                 </div>
             </XContainer>
         </div>
