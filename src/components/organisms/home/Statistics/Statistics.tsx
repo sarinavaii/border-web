@@ -11,14 +11,14 @@ const Statistics = ({ data }: { data: StructureSection }) => {
                 <div className="mt-12 grid lg:grid-cols-2 grid-cols-1 max-lg:gap-4 max-w-[1152px] mx-auto border-t border-l lg:border-gray border-transparent">
                     {data.data.variants.map((item, index) => (
                         <div
-                            key={item.data.title + index}
+                            key={item.title + index}
                             className={cn(
                                 "text-center flex flex-col gap-12 items-center justify-center p-8 border-b border-r lg:border-gray border-transparent bg-light",
                             )}
                         >
-                            <h4 className="header-4">{item.data.title}</h4>
-                            <div className="lg:header-1-mono header-2 opacity-10">{item.data.amount}</div>
-                            <div className="paragraph-4 max-w-[400px]">{item.data.description}</div>
+                            <h4 className="header-4">{item.title}</h4>
+                            <div className="lg:header-1-mono header-2 opacity-10">{item.amount}</div>
+                            <div className="paragraph-4 max-w-[400px]">{item.description}</div>
                         </div>
                     ))}
                 </div>

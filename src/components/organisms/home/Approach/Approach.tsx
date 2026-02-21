@@ -13,7 +13,7 @@ const Approach = ({ data }: { data: ConstructionSection }) => {
                 <div className="grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 lg:divide-x max-lg:divide-y divide-gray">
                     {data.data.variant.map((item, index) => (
                         <div
-                            key={item.type + index}
+                            key={item.title + index}
                             className="lg:text-light max-lg:bg-light group px-12 py-[100px] min-h-[400px] flex flex-col justify-between relative overflow-hidden z-1"
                         >
                             <span
@@ -21,16 +21,14 @@ const Approach = ({ data }: { data: ConstructionSection }) => {
                                 className="pointer-events-none absolute -z-10 max-lg:hidden inset-0 left-0 top-0 h-full bg-light transition-all duration-300 group-hover:w-full w-0"
                             />
                             <Image
-                                src={item.data.image_url}
-                                alt={item.data.title}
+                                src={item.image_url}
+                                alt={item.title}
                                 width={96}
                                 height={96}
                                 className="group-hover:block lg:hidden absolute right-4 top-4"
                             />
-                            <h4 className="header-3 group-hover:text-dark transition-colors">{item.data.title}</h4>
-                            <div className="paragraph-3 lg:hidden group-hover:block text-dark">
-                                {item.data.description}
-                            </div>
+                            <h4 className="header-3 group-hover:text-dark transition-colors">{item.title}</h4>
+                            <div className="paragraph-3 lg:hidden group-hover:block text-dark">{item.description}</div>
                             <svg
                                 width={24}
                                 height={24}

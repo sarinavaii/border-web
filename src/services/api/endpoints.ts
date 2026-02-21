@@ -4,6 +4,7 @@ import { ContactUsPageResponse } from "@services/types/contact-us-page.types";
 import { FooterResponse } from "@services/types/footer.types";
 import { LogoResponse } from "@services/types/logo.types";
 import { MainPageResponse } from "@services/types/main-page.types";
+import { ProjectsPageResponse } from "@services/types/projects-page.types";
 import { ServicesPageResponse } from "@services/types/services-page.types";
 import { SolutionsPageResponse } from "@services/types/solutions-page.types";
 
@@ -14,10 +15,6 @@ async function fetchAPI<T>(
     method: "GET" | "POST" = "GET",
     body?: Record<string, unknown>,
 ): Promise<T> {
-    console.log({
-        body,
-        method,
-    });
     const url = `${API_BASE}${endpoint}`;
     let res: Response;
     try {
@@ -50,6 +47,15 @@ export const api = {
     getFooter: () => fetchAPI<FooterResponse>("/core/site_footer"),
     getMainPage: () => fetchAPI<MainPageResponse>("/home/main_page"),
     getClients: () => fetchAPI<ClientsPageResponse>("/client/client_page"),
+    getProjects: (params?: { q_name?: string; q_location?: string; q_year?: number }) => {
+        const query =
+            params &&
+            Object.entries(params)
+                .filter(([_, v]) => v !== undefined && v !== null)
+                .map(([k, v]) => `${encodeURIComponent(k)}=${encodeURIComponent(String(v))}`)
+                .join("&");
+        return fetchAPI<ProjectsPageResponse>(`/project/project_page${query ? `?${query}` : ""}`);
+    },
     getServicesPage: () => fetchAPI<ServicesPageResponse>("/services/services_page"),
     getAboutUsPage: () => fetchAPI<AboutUsPageResponse>("/about_us/about_us_page"),
     getSolutionsPage: () => fetchAPI<SolutionsPageResponse>("/solutions/solution_page"),

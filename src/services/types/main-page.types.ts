@@ -76,12 +76,9 @@ export interface ConstructionSection extends BaseSection {
 }
 
 export interface ConstructionVariant {
-    type: "construction_description";
-    data: {
-        title: string;
-        description: string;
-        image_url: string;
-    };
+    title: string;
+    description: string;
+    image_url: string;
 }
 
 /* =========================
@@ -90,22 +87,24 @@ export interface ConstructionVariant {
 
 export interface ProjectSection extends BaseSection {
     type: "project";
-    data: {
-        id: number;
-        project_name: string;
-        country: string;
-        project_date: string; // ISO date
-        variants: ProjectVariant[];
-    };
+    data: Project[];
 }
 
-export interface ProjectVariant {
-    type: "project_variant";
-    data: {
-        variant_type: string;
-        description: string;
-        image_url: string;
-    };
+export interface Project {
+    id: number;
+    title: string;
+    company: string;
+    location: string;
+    start_date?: string;
+    end_date?: string;
+    result: ProjectAspect;
+    solution: ProjectAspect;
+    challenge: ProjectAspect;
+}
+
+export interface ProjectAspect {
+    description: string;
+    image_url: string;
 }
 
 /* =========================
@@ -134,12 +133,9 @@ export interface StructureSection extends BaseSection {
 }
 
 export interface StructureVariant {
-    type: "structure_variant";
-    data: {
-        amount: string;
-        title: string;
-        description: string;
-    };
+    amount: string;
+    title: string;
+    description: string;
 }
 
 /* =========================

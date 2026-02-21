@@ -48,8 +48,6 @@ const Portfolio = ({ data }: { data: InnovationSection }) => {
         };
     }, []);
 
-    console.log(data.data.variants);
-
     return (
         <div className="relative w-full bg-dark py-24">
             <svg

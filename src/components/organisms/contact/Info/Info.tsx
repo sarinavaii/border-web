@@ -12,12 +12,15 @@ const Info = ({ data }: { data: GetInTouchSection }) => {
             <div className="border-t border-gray">
                 <XContainer className="lg:px-0! max-lg:pb-16">
                     <div className="grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 lg:divide-x max-lg:divide-y divide-gray lg:*:min-h-[400px] *:min-h-[300px]">
-                        {data.data.touch_variants.map((item) => {
+                        {data.data.touch_variants.map((item, index) => {
                             return (
-                                <div key={item.title} className="p-8 relative flex flex-col gap-4 justify-center">
+                                <div
+                                    key={item.title + index}
+                                    className="p-8 relative flex flex-col gap-4 justify-center"
+                                >
                                     <Image
                                         src={item.image_url}
-                                        alt={item.title}
+                                        alt={item.title ?? "contact"}
                                         width={96}
                                         height={96}
                                         className="absolute right-4 top-4 lg:size-24 size-16"

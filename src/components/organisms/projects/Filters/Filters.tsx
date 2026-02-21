@@ -1,101 +1,23 @@
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
-import { Select, TextInput } from "@mantine/core";
+import { Routes } from "@core/routes/routes";
+import { TextInput } from "@mantine/core";
 
-const Filters = () => {
+type FiltersProps = {
+    searchParams?: { q_name?: string; q_location?: string; q_year?: string };
+};
+
+const Filters = ({ searchParams }: FiltersProps) => {
     return (
         <div className="bg-smoke py-9">
             <XContainer>
-                <div className="flex">
-                    <TextInput
-                        size="lg"
-                        classNames={{
-                            root: "grow",
-                            input: "placeholder:paragraph-3! paragraph-3! placeholder:text-[#666]!",
-                        }}
-                        className=""
-                        placeholder="Search For A Project"
-                    />
-                    <XButton
-                        mode="book"
-                        classNames={{
-                            root: "border border-l-0 border-gray shrink-0",
-                            inner: "border-none!",
-                        }}
-                    >
-                        Find Project
-                    </XButton>
-                </div>
-                <div className="grid xl:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mt-3">
-                    <Select
-                        checkIconPosition="right"
-                        placeholder="Location"
-                        rightSection={
-                            <svg
-                                width={18}
-                                height={9}
-                                viewBox="0 0 18 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M16.59 0.75L10.07 7.27C9.3 8.04 8.04 8.04 7.27 7.27L0.75 0.75"
-                                    stroke="#292D32"
-                                    strokeWidth={1.5}
-                                    strokeMiterlimit={10}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        }
-                        leftSection={
-                            <svg
-                                width={24}
-                                height={24}
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M11.9999 13.4299C13.723 13.4299 15.1199 12.0331 15.1199 10.3099C15.1199 8.58681 13.723 7.18994 11.9999 7.18994C10.2768 7.18994 8.87988 8.58681 8.87988 10.3099C8.87988 12.0331 10.2768 13.4299 11.9999 13.4299Z"
-                                    stroke="#1C1C1C"
-                                    strokeWidth={1.5}
-                                />
-                                <path
-                                    d="M3.6202 8.49C5.5902 -0.169998 18.4202 -0.159997 20.3802 8.5C21.5302 13.58 18.3702 17.88 15.6002 20.54C13.5902 22.48 10.4102 22.48 8.3902 20.54C5.6302 17.88 2.4702 13.57 3.6202 8.49Z"
-                                    stroke="#1C1C1C"
-                                    strokeWidth={1.5}
-                                />
-                            </svg>
-                        }
-                        size="lg"
-                        data={["New York", "London", "Berlin", "Tokyo", "Sydney", "Paris"]}
-                        classNames={{
-                            option: "paragraph-3! hover:bg-smoke!",
-                            input: "placeholder:paragraph-3! paragraph-3! placeholder:text-[#666]!",
-                        }}
-                    />
-                    <Select
-                        checkIconPosition="right"
-                        placeholder="Project Type"
-                        rightSection={
-                            <svg
-                                width={18}
-                                height={9}
-                                viewBox="0 0 18 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M16.59 0.75L10.07 7.27C9.3 8.04 8.04 8.04 7.27 7.27L0.75 0.75"
-                                    stroke="#292D32"
-                                    strokeWidth={1.5}
-                                    strokeMiterlimit={10}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        }
+                <form method="get" action={Routes.PROJECTS} className="contents">
+                    <div className="grid mb-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 mt-3">
+                        <TextInput
+                            key="q_name"
+                            placeholder="Name"
+                            name="q_name"
+                            defaultValue={searchParams?.q_name}
                         leftSection={
                             <svg
                                 width={24}
@@ -163,42 +85,15 @@ const Filters = () => {
                             </svg>
                         }
                         size="lg"
-                        data={[
-                            "Commercial",
-                            "Educational",
-                            "Healthcare",
-                            "Hospitality",
-                            "Industrial",
-                            "Cultural",
-                            "Recreational",
-                            "Mixed-use",
-                        ]}
                         classNames={{
-                            option: "paragraph-3! hover:bg-smoke!",
                             input: "placeholder:paragraph-3! paragraph-3! placeholder:text-[#666]!",
                         }}
                     />
-                    <Select
-                        checkIconPosition="right"
-                        placeholder="Service Type"
-                        rightSection={
-                            <svg
-                                width={18}
-                                height={9}
-                                viewBox="0 0 18 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M16.59 0.75L10.07 7.27C9.3 8.04 8.04 8.04 7.27 7.27L0.75 0.75"
-                                    stroke="#292D32"
-                                    strokeWidth={1.5}
-                                    strokeMiterlimit={10}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        }
+
+                        <TextInput
+                            placeholder="Location"
+                            name="q_location"
+                            defaultValue={searchParams?.q_location}
                         leftSection={
                             <svg
                                 width={24}
@@ -220,99 +115,15 @@ const Filters = () => {
                             </svg>
                         }
                         size="lg"
-                        data={[
-                            "Architectural Design",
-                            "Interior Design",
-                            "Landscape Design",
-                            "Urban Planning",
-                            "Renovation",
-                            "Consulting",
-                        ]}
                         classNames={{
-                            option: "paragraph-3! hover:bg-smoke!",
                             input: "placeholder:paragraph-3! paragraph-3! placeholder:text-[#666]!",
                         }}
                     />
-                    <Select
-                        checkIconPosition="right"
-                        placeholder="Scale Project"
-                        rightSection={
-                            <svg
-                                width={18}
-                                height={9}
-                                viewBox="0 0 18 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M16.59 0.75L10.07 7.27C9.3 8.04 8.04 8.04 7.27 7.27L0.75 0.75"
-                                    stroke="#292D32"
-                                    strokeWidth={1.5}
-                                    strokeMiterlimit={10}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        }
-                        leftSection={
-                            <svg
-                                width={24}
-                                height={24}
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M11.9999 21.4098H5.93993C2.46993 21.4098 1.01993 18.9298 2.69993 15.8998L5.81993 10.2798L8.75993 4.99979C10.5399 1.78979 13.4599 1.78979 15.2399 4.99979L18.1799 10.2898L21.2999 15.9098C22.9799 18.9398 21.5199 21.4198 18.0599 21.4198H11.9999V21.4098Z"
-                                    stroke="#1C1C1C"
-                                    strokeWidth={1.5}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                                <path
-                                    d="M21.4401 20.0001L12.0001 13.3901L2.56006 20.0001"
-                                    stroke="#1C1C1C"
-                                    strokeWidth={1.5}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                                <path
-                                    d="M12 3V13.39"
-                                    stroke="#1C1C1C"
-                                    strokeWidth={1.5}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        }
-                        size="lg"
-                        data={["Small Scale", "Medium Scale", "Large Scale", "Extra Large Scale"]}
-                        classNames={{
-                            option: "paragraph-3! hover:bg-smoke!",
-                            input: "placeholder:paragraph-3! paragraph-3! placeholder:text-[#666]!",
-                        }}
-                    />
-                    <Select
-                        checkIconPosition="right"
-                        placeholder="Completion year"
-                        rightSection={
-                            <svg
-                                width={18}
-                                height={9}
-                                viewBox="0 0 18 9"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M16.59 0.75L10.07 7.27C9.3 8.04 8.04 8.04 7.27 7.27L0.75 0.75"
-                                    stroke="#292D32"
-                                    strokeWidth={1.5}
-                                    strokeMiterlimit={10}
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </svg>
-                        }
+
+                        <TextInput
+                            placeholder="Year"
+                            name="q_year"
+                            defaultValue={searchParams?.q_year}
                         leftSection={
                             <svg
                                 width={24}
@@ -334,28 +145,25 @@ const Filters = () => {
                             </svg>
                         }
                         size="lg"
-                        data={[
-                            "2025",
-                            "2024",
-                            "2023",
-                            "2022",
-                            "2021",
-                            "2020",
-                            "2019",
-                            "2018",
-                            "2017",
-                            "2016",
-                            "2015",
-                            "2010-2014",
-                            "2000-2009",
-                            "Before 2000",
-                        ]}
                         classNames={{
-                            option: "paragraph-3! hover:bg-smoke!",
                             input: "placeholder:paragraph-3! paragraph-3! placeholder:text-[#666]!",
                         }}
                     />
                 </div>
+                    <div className="flex justify-end">
+                        <XButton
+                            type="submit"
+                            mode="book"
+                            size="xl"
+                            classNames={{
+                                root: "border cursor-pointer border-l-0 border-gray shrink-0",
+                                inner: "block text-center",
+                            }}
+                        >
+                            Find Project
+                        </XButton>
+                    </div>
+                </form>
             </XContainer>
         </div>
     );

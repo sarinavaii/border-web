@@ -2,9 +2,10 @@
 
 import XButton from "@atoms/XButton";
 import XContainer from "@atoms/XContainer";
+import { ProjectSliderSection } from "@services/types/projects-page.types";
 import { motion } from "framer-motion";
 
-const Hero = () => {
+const Hero = ({ data }: { data: ProjectSliderSection }) => {
     return (
         <div className="text-light relative">
             <div className="absolute inset-0">
@@ -20,14 +21,10 @@ const Hero = () => {
             <div className="absolute inset-0 bg-black/40"></div>
             <div className="absolute inset-0 top-[180px] header-1-mono max-xl:text-7xl! max-lg:text-5xl! max-sm:text-4xl! mb-6">
                 <XContainer>
-                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">
-                        Defining the Future of Construction
-                    </h2>
-                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">
-                        Explore projects that showcase our commitment to innovation, precision, and timeless quality
-                    </div>
-                    <XButton as="link" href="/">
-                        Contact Us
+                    <h2 className="backdrop-blur-[2px] lg:header-1-mono header-2 mb-4">{data.data.title}</h2>
+                    <div className="lg:paragraph-2 paragraph-4 lg:mb-32 mb-16">{data.data.description ?? ""}</div>
+                    <XButton as="link" href={data.data.button_url}>
+                        {data.data.button_name}
                     </XButton>
                 </XContainer>
             </div>
@@ -50,7 +47,7 @@ const Hero = () => {
                 <div className="paragraph-5">Trusted by architects worldwide | BIM • Design • Consulting</div>
             </XContainer>
             <video playsInline muted autoPlay loop className="w-full h-dvh min-h-[870px] object-cover">
-                <source src="/video/projects.mp4" type="video/mp4" />
+                <source src={data.data.file_url} type="video/mp4" />
             </video>
         </div>
     );

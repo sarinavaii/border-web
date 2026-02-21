@@ -95,17 +95,22 @@ export interface DeliverProjectVariant {
 
 export interface ProjectSection extends BaseSection {
     type: "project";
-    data: {
-        id: number;
-        project_name: string;
-        country: string;
-        project_date: string;
-        variants: ProjectVariant[];
-    };
+    data: Project[];
 }
 
-export interface ProjectVariant {
-    variant_type: string; // "challenge" | "result" etc.
+export interface Project {
+    id: number;
+    title: string;
+    company: string;
+    location: string;
+    start_date?: string;
+    end_date?: string;
+    result?: ProjectAspect;
+    solution?: ProjectAspect;
+    challenge?: ProjectAspect;
+}
+
+export interface ProjectAspect {
     description: string;
     image_url: string;
 }
