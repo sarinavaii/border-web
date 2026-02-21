@@ -4,6 +4,7 @@ import { ContactUsPageResponse } from "@services/types/contact-us-page.types";
 import { FooterResponse } from "@services/types/footer.types";
 import { LogoResponse } from "@services/types/logo.types";
 import { MainPageResponse } from "@services/types/main-page.types";
+import { ProjectPageResponse } from "@services/types/project-page.types";
 import { ProjectsPageResponse } from "@services/types/projects-page.types";
 import { ServicesPageResponse } from "@services/types/services-page.types";
 import { SolutionsPageResponse } from "@services/types/solutions-page.types";
@@ -35,9 +36,7 @@ async function fetchAPI<T>(
     }
 
     if (!res.ok) {
-        throw new Error(
-            `API Error at "${url}": status ${res.status} (${res.statusText})\nResponse: ${JSON.stringify(data)}`,
-        );
+        return undefined as T;
     }
     return data as T;
 }
@@ -56,6 +55,7 @@ export const api = {
                 .join("&");
         return fetchAPI<ProjectsPageResponse>(`/project/project_page${query ? `?${query}` : ""}`);
     },
+    getProject: (slug: string) => fetchAPI<ProjectPageResponse>(`/core/detail_project/${slug}`),
     getServicesPage: () => fetchAPI<ServicesPageResponse>("/services/services_page"),
     getAboutUsPage: () => fetchAPI<AboutUsPageResponse>("/about_us/about_us_page"),
     getSolutionsPage: () => fetchAPI<SolutionsPageResponse>("/solutions/solution_page"),
